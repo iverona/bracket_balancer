@@ -22,7 +22,7 @@ class TestBracketBalancer(unittest.TestCase):
 		self.assertFalse(isBalanced("{[({([])})}]"))
 
 	def test_negative_emptyString(self):
-		self.assertFalse(isBalanced(""))
+		self.assertTrue(isBalanced(""))
 
 
 if __name__ == '__main__':

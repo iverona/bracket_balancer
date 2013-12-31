@@ -9,8 +9,8 @@ class TestBracketBalancer(unittest.TestCase):
 	def test_positive_complex(self):
 		self.assertTrue(isBalanced("[({[{({(({{[]}}))})}]})]"))
 
-	def test_negative_wrongString(self):
-		self.assertFalse(isBalanced("[ab]"))
+	def test_positive_otherCharactersString(self):
+		self.assertTrue(isBalanced("[ab]"))
 
 	def test_negative_oddString(self):
 		self.assertFalse(isBalanced("[]("))

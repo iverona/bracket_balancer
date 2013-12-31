@@ -14,10 +14,10 @@ def isBalanced(input_string):
 	cleaned_string = ''.join(re.findall("[()\[\]{}]", input_string))
 
 	# Preliminary check
-	if (len(input_string)%2 != 0):
+	if (len(cleaned_string)%2 != 0):
 		return False
 
-	for char in input_string:
+	for char in cleaned_string:
 		if char in openings:
 			opening_chars.append(char)
 		else:			

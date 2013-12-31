@@ -21,9 +21,7 @@ def isBalanced(input_string):
 		if char in openings:
 			opening_chars.append(char)
 		else:			
-			if isCorrectClosing(opening_chars.pop(), char):
-				continue
-			else:
+			if not isCorrectClosing(opening_chars.pop(), char):
 				return False
 
 	return True

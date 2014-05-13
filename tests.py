@@ -1,28 +1,28 @@
 import unittest
-from bracketbalancer import isBalanced
+from bracketbalancer import is_balanced
 
 class TestBracketBalancer(unittest.TestCase):
 
 	def test_positive_simple(self):
-		self.assertTrue(isBalanced("({[]})"))
+		self.assertTrue(is_balanced("({[]})"))
 
 	def test_positive_complex(self):
-		self.assertTrue(isBalanced("[({[{({(({{[]}}))})}]})]"))
+		self.assertTrue(is_balanced("[({[{({(({{[]}}))})}]})]"))
 
 	def test_positive_otherCharactersString(self):
-		self.assertTrue(isBalanced("[ab]"))
+		self.assertTrue(is_balanced("[ab]"))
 
 	def test_negative_oddString(self):
-		self.assertFalse(isBalanced("[]("))
+		self.assertFalse(is_balanced("[]("))
 
 	def test_negative_simple(self):
-		self.assertFalse(isBalanced("([)]"))
+		self.assertFalse(is_balanced("([)]"))
 
 	def test_negative_complex(self):
-		self.assertFalse(isBalanced("{[({([])})}]"))
+		self.assertFalse(is_balanced("{[({([])})}]"))
 
 	def test_positive_emptyString(self):
-		self.assertTrue(isBalanced(""))
+		self.assertTrue(is_balanced(""))
 
 
 if __name__ == '__main__':

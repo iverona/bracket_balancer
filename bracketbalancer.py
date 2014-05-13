@@ -1,15 +1,13 @@
 import re
 
-def isBalanced(input_string):
+def is_balanced(input_string):
 	'''
 	Check if a given string is balanced in terms of
 	brackets: (),{} and []
 
 	An empty string is considered as valid
 	'''
-	openings, closings = "{[(", "}])"
-
-	opening_chars, closing_chars = [], []
+	symbols = {'}':'{', ')':'(', ']':'['}
 
 	cleaned_string = ''.join(re.findall("[()\[\]{}]", input_string))
 
@@ -17,25 +15,13 @@ def isBalanced(input_string):
 	if (len(cleaned_string)%2 != 0):
 		return False
 
+	chars_stack = []
+
 	for char in cleaned_string:
-		if char in openings:
-			opening_chars.append(char)
+		if char in symbols.values():
+			chars_stack.append(char)
 		else:			
-			if not isCorrectClosing(opening_chars.pop(), char):
+			if not symbols[char] == chars_stack.pop():
 				return False
 
 	return True
-
-def isCorrectClosing(opening, closing):
-	'''
-	Might be achieved using the openings 
-	and closings positions, but looks 
-	cleaner this way
-	'''
-
-	if (opening == "(" and closing == ")"
-	or opening == "[" and closing == "]"
-	or opening == "{" and closing == "}"):
-		return True
-
-	return False
